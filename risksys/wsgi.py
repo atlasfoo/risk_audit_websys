@@ -1,5 +1,5 @@
 """
-WSGI config for risks project.
+WSGI config for risksys project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'risks.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'risksys.settings')
 
 application = get_wsgi_application()
