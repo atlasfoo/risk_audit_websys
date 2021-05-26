@@ -32,7 +32,7 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool('DEBUG', default=True)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -132,6 +132,14 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# staticfile collect set
+STATICFILES_DIRS = (root('static'),)
+STATIC_ROOT = os.path.join(BASE_DIR, 'assets-root', 'static')
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'assets-root', 'media')
+
+STATICFILE_STORAGE = 'whitenoise.django.GzipManifestStaticFileStorage'
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
