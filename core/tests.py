@@ -5,4 +5,3 @@ from django.test import TestCase
 class CoreTests(TestCase):
     def test_core(self):
         self.assertEqual(True, True)
-

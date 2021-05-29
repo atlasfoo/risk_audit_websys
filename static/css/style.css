@@ -1,0 +1,13 @@
+body {
+  background-color: #fff;
+}
+body nav.navbar {
+  background-color: #319def !important;
+}
+body nav.navbar .navbar-brand {
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: #1a1a1a;
+}
+
+/*# sourceMappingURL=style.css.map */

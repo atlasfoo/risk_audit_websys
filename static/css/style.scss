@@ -1,0 +1,16 @@
+//variables
+$main-backcolor: #319def;
+
+body {
+  background-color: #fff;
+
+  nav.navbar {
+    background-color: $main-backcolor !important;
+
+    .navbar-brand {
+      font-weight: 500;
+      letter-spacing: 1px;
+      color: #1a1a1a;
+    }
+  }
+}
