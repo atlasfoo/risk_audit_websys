@@ -9,6 +9,7 @@ django-environ = "*"
 gunicorn = "*"
 whitenoise = "*"
 psycopg2 = "*"
+django-ckeditor = "*"
 
 [dev-packages]
 
