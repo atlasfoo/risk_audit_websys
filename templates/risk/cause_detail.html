@@ -10,7 +10,8 @@
                 <div>
                     {{ cause.description|safe }}
                     <div class="mb-2"><span class="text-muted">Riesgo asociado: </span>{{ cause.risk.name }}</div>
-                    <a class="btn btn-warning" href="{% url 'risks:update_cause' cause.id %}"><i class="far fa-edit"></i> Editar</a>
+                    <a class="btn btn-warning" href="{% url 'risks:update_cause' cause.id %}"><i
+                            class="far fa-edit"></i> Editar</a>
                 </div>
             </div>
         </div>

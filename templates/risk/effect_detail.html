@@ -10,8 +10,11 @@
                 <div>
                     {{ effect.description|safe }}
                     <div><span class="text-muted">Riesgo asociado: </span>{{ effect.risk.name }}</div>
-                    <div class="mb-2"><span class="text-muted">Costo económico aproximado: </span>{{ effect.economic_loss }}USD</div>
-                    <a class="btn btn-warning" href="{% url 'risks:update_effect' effect.id %}"><i class="far fa-edit"></i> Editar</a>
+                    <div class="mb-2"><span
+                            class="text-muted">Costo económico aproximado: </span>{{ effect.economic_loss }}USD
+                    </div>
+                    <a class="btn btn-warning" href="{% url 'risks:update_effect' effect.id %}"><i
+                            class="far fa-edit"></i> Editar</a>
                 </div>
             </div>
         </div>
