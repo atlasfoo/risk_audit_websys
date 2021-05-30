@@ -1,16 +1,28 @@
 {% extends 'layout.html' %}
 {% load static %}
 {% block title %}{{ risk.name }}{% endblock %}
-{% block content %}
+{% block body %}
     {% include 'risk/includes/risks_menu.html' %}
     <section class="container mt-3">
         <div class="row">
             <div class="col-md-9 mx-auto">
-                <h2 class="section-heading mb-4">{{ risk.name }}</h2>
+                <h2 class="section-heading mb-4">Riesgo: {{ risk.name }}</h2>
                 <div>
                     {{ risk.description|safe }}
                     {#                <div><a href="#">Editar</a></div>#}
                 </div>
+                <h4>Causas</h4>
+                <ul>
+                    {% for cause in risk.causes.all %}
+                        <li class="det-list">{{ cause.name }}</li>
+                    {% endfor %}
+                </ul>
+                <h4>Consecuencias</h4>
+                <ul>
+                    {% for effect in risk.effects.all %}
+                        <li class="det-list">{{ effect.name }}</li>
+                    {% endfor %}
+                </ul>
             </div>
         </div>
     </section>

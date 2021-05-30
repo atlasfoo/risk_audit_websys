@@ -10,7 +10,7 @@
                 <h2 class="mb-4">{{ risk.name }}</h2>
                 <div>
                     <p>{{ risk.description|striptags|safe|truncatechars:"200" }}</p>
-                    <div class="entry-list"><a href="#">Leer
+                    <div class="entry-list"><a href="{% url 'risks:risk' risk.id %}">Leer
                         más</a>
 {#                        {% url 'pages:page' page.id page.title|slugify %}#}
 {#                        <a href="{% url 'pages:update' page.id %}">Editar</a>#}

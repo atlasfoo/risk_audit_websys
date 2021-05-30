@@ -9,5 +9,10 @@ body nav.main_bar .navbar-brand {
   letter-spacing: 1px;
   color: #1a1a1a;
 }
+body .det-list {
+  color: #454545;
+  font-style: italic;
+  font-weight: 300;
+}
 
 /*# sourceMappingURL=style.css.map */
