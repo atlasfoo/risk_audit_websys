@@ -2,8 +2,8 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
-from risk.forms import RiskForm
-from risk.models import Risk
+from risk.forms import RiskForm, CauseForm
+from risk.models import Risk, Cause
 
 
 # RISK VIEWS
@@ -30,11 +30,29 @@ class UpdateRiskView(UpdateView):
         return reverse_lazy('risks:risk', args=[self.object.id])
 
 
-class DeleteRiskView(DeleteView):
-    model = Risk
-    success_url = reverse_lazy('risks:list')
+# CAUSE VIEWS
+class CauseListView(ListView):
+    model = Cause
 
-# TODO: CAUSE VIEWS
+
+class CauseDetailView(DetailView):
+    model = Cause
+
+
+class CreateCauseView(CreateView):
+    model = Cause
+    success_url = reverse_lazy('risks:cause_list')
+    form_class = CauseForm
+
+
+class UpdateCauseView(UpdateView):
+    model = Cause
+    template_name_suffix = "_update_form"
+    form_class = CauseForm
+
+    def get_success_url(self):
+        return reverse_lazy('risks:cause', args=[self.object.id])
+
 
 # TODO: EFFECT VIEWS
 
