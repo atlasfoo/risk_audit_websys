@@ -1,10 +1,10 @@
 body {
   background-color: #fff;
 }
-body nav.navbar {
+body nav.main_bar {
   background-color: #319def !important;
 }
-body nav.navbar .navbar-brand {
+body nav.main_bar .navbar-brand {
   font-weight: 500;
   letter-spacing: 1px;
   color: #1a1a1a;

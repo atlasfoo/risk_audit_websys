@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block title %}Riesgos{% endblock %}
+{% block body %}
+    {% include 'risk/includes/risks_menu.html' %}
+    <section class="container">
+    {% for risk in object_list %}
+        <div class="row mt-3">
+            <div class="col-md-9 mx-auto">
+                <h2 class="mb-4">{{ risk.name }}</h2>
+                <div>
+                    <p>{{ risk.description|striptags|safe|truncatechars:"200" }}</p>
+                    <div class="entry-list"><a href="#">Leer
+                        más</a>
+{#                        {% url 'pages:page' page.id page.title|slugify %}#}
+{#                        <a href="{% url 'pages:update' page.id %}">Editar</a>#}
+{#                        <a href="{% url 'pages:delete' page.id %}">Borrar</a>#}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </section>
+{% endblock %}

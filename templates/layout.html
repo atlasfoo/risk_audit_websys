@@ -14,7 +14,7 @@
 </head>
 <body>
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar main_bar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'index' %}">
                 <img src="{% static 'img/icon/icon96.png' %}" width="30" height="30" class="d-inline-block align-top"
@@ -34,7 +34,7 @@
                             Matriz de Riesgos
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Riesgos</a></li>
+                            <li><a class="dropdown-item" href="{% url 'risks:list' %}">Riesgos</a></li>
                             <li><a class="dropdown-item" href="#">Causas</a></li>
                             <li><a class="dropdown-item" href="#">Consencuencias</a></li>
                         </ul>
@@ -60,7 +60,7 @@
         </div>
     </nav>
 </header>
-<main class="container pt-3">
+<main>
     {% block body %}{% endblock %}
 </main>
 </body>

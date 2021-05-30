@@ -16,7 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from risk.urls import risk_urls
+
 urlpatterns = [
     path('', include('core.urls')),
+    path('risks/', include(risk_urls)),
     path('admin/', admin.site.urls),
 ]

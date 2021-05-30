@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block title %}{{ risk.name }}{% endblock %}
+{% block content %}
+    {% include 'risk/includes/risks_menu.html' %}
+    <section class="container mt-3">
+        <div class="row">
+            <div class="col-md-9 mx-auto">
+                <h2 class="section-heading mb-4">{{ risk.name }}</h2>
+                <div>
+                    {{ risk.description|safe }}
+                    {#                <div><a href="#">Editar</a></div>#}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
