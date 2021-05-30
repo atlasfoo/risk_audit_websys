@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block title %}Consecuencias{% endblock %}
+{% block body %}
+    {% include 'risk/includes/effects_menu.html' %}
+    <section class="container">
+    {% for effect in object_list %}
+        <div class="row mt-3 mb-2 card">
+            <div class="col-md-9 mx-auto card-body">
+                <h2 class="mb-4">{{ effect.name }}</h2>
+                <div>
+                    <p>{{ effect.description|striptags|safe|truncatechars:"200" }}</p>
+                    <p><span class="text-muted">Riesgo asociado:</span> {{ effect.risk.name }}</p>
+                    <div class="entry-list">
+                        <a class="btn btn-secondary" href="{% url 'risks:effect' effect.id %}"><i class="far fa-eye"></i> Leer más</a>
+                        <a class="btn btn-warning" href="{% url 'risks:update_effect' effect.id %}"><i class="far fa-edit"></i> Editar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </section>
+{% endblock %}

@@ -14,5 +14,9 @@ body .det-list {
   font-style: italic;
   font-weight: 300;
 }
+body .economic-loss {
+  font-weight: 500;
+  color: #a50202;
+}
 
 /*# sourceMappingURL=style.css.map */
