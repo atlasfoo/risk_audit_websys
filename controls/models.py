@@ -11,15 +11,15 @@ class Control(models.Model):
                                 null=False, blank=False)
     risk = models.ForeignKey(Risk, on_delete=models.CASCADE, verbose_name="Riesgo", related_name="controls",
                              null=False)
-    riskorder = models.IntegerField(verbose_name="Orden", null=False)
+    order = models.IntegerField(verbose_name="Orden", null=False)
 
     class Meta:
         unique_together = (('risk', 'order'),)
         indexes = [
             models.Index(fields=['risk', 'order'])
         ]
-        verbose_name = "Causa"
-        verbose_name_plural = "Causas"
+        verbose_name = "Control"
+        verbose_name_plural = "Controles"
         ordering = ["id"]
 
     def __str__(self):
