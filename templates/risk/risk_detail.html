@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% load filters %}
+{% block title %}{{ risk.name }}{% endblock %}
+{% block body %}
+    {% include 'risk/includes/risks_menu.html' %}
+    <section class="container mt-3">
+        <div class="row card p-3">
+            <div class="col-md-9 mx-auto card-bodys">
+                <h2 class="section-heading mb-4"><i class="fas fa-asterisk"></i> Riesgo: {{ risk.name }}</h2>
+                <div>
+                    {{ risk.description|safe }}
+                </div>
+                <h4>Causas</h4>
+                <ul>
+                    {% for cause in risk.causes.all %}
+                        <li class="det-list">{{ cause.name }}</li>
+                    {% endfor %}
+                </ul>
+                <h4>Consecuencias</h4>
+                <ul>
+                    {% for effect in risk.effects.all %}
+                        <li class="det-list">{{ effect.name }}</li>
+                    {% endfor %}
+                </ul>
+                <h4>Costo econ&oacute;mico total aporximado</h4>
+                <div>
+                    <span class="economic-loss"><i
+                            class="fas fa-sort-down"></i> {{ risk.effects.all|sum_economic_loss }} USD </span>
+                </div>
+                <div class="mt-3">
+                    <a class="btn btn-warning" href="{% url 'risks:update' risk.id %}"><i class="far fa-edit"></i>
+                        Editar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

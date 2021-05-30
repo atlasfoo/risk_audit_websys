@@ -1,13 +1,22 @@
 body {
   background-color: #fff;
 }
-body nav.navbar {
+body nav.main_bar {
   background-color: #319def !important;
 }
-body nav.navbar .navbar-brand {
+body nav.main_bar .navbar-brand {
   font-weight: 500;
   letter-spacing: 1px;
   color: #1a1a1a;
+}
+body .det-list {
+  color: #454545;
+  font-style: italic;
+  font-weight: 300;
+}
+body .economic-loss {
+  font-weight: 500;
+  color: #a50202;
 }
 
 /*# sourceMappingURL=style.css.map */

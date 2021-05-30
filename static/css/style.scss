@@ -4,7 +4,7 @@ $main-backcolor: #319def;
 body {
   background-color: #fff;
 
-  nav.navbar {
+  nav.main_bar {
     background-color: $main-backcolor !important;
 
     .navbar-brand {
@@ -12,5 +12,16 @@ body {
       letter-spacing: 1px;
       color: #1a1a1a;
     }
+  }
+
+  .det-list {
+    color: #454545;
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  .economic-loss {
+    font-weight: 500;
+    color: #a50202;
   }
 }
