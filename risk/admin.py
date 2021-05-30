@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from risk.models import Risk
+from risk.models import Risk, Cause, Effect
 
 
 class RiskAdmin(admin.ModelAdmin):
@@ -13,3 +13,5 @@ class RiskAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Risk, RiskAdmin)
+admin.site.register(Cause, RiskAdmin)
+admin.site.register(Effect, RiskAdmin)
