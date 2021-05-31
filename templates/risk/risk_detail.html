@@ -14,13 +14,19 @@
                 <h4>Causas</h4>
                 <ul>
                     {% for cause in risk.causes.all %}
-                        <li class="det-list">{{ cause.name }}</li>
+                        <li class="det-list"><a href="{% url 'risks:cause' cause.id %}">{{ cause.name }}</a></li>
                     {% endfor %}
                 </ul>
                 <h4>Consecuencias</h4>
                 <ul>
                     {% for effect in risk.effects.all %}
-                        <li class="det-list">{{ effect.name }}</li>
+                        <li class="det-list"><a href="{% url 'risks:effect' effect.id %}">{{ effect.name }}</a></li>
+                    {% endfor %}
+                </ul>
+                <h4>Controles establecidos</h4>
+                <ul>
+                    {% for control in risk.controls.all %}
+                        <li class="det-list"><a href="{% url 'controls:control' control.id %}">{{ control.name }}</a></li>
                     {% endfor %}
                 </ul>
                 <h4>Costo econ&oacute;mico total aporximado</h4>
