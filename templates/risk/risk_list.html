@@ -13,8 +13,10 @@
                         <div class="entry-list">
                             <a class="btn btn-secondary" href="{% url 'risks:risk' risk.id %}"><i
                                     class="far fa-eye"></i> Leer más</a>
-                            <a class="btn btn-warning" href="{% url 'risks:update' risk.id %}"><i
-                                    class="far fa-edit"></i> Editar</a>
+                            {% if request.user.is_staff %}
+                                <a class="btn btn-warning" href="{% url 'risks:update' risk.id %}"><i
+                                        class="far fa-edit"></i> Editar</a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
