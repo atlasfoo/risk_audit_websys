@@ -37,3 +37,12 @@ class IncidenceControl(models.Model):
     control = models.ForeignKey(Control, on_delete=models.CASCADE, verbose_name="Control", related_name="incidences",
                                 null=False)
     was_effective = models.BooleanField(default=False, verbose_name="Control fue efectivo?")
+
+    class Meta:
+        unique_together = (('id', 'incidence', 'control'),)
+        indexes = [
+            models.Index(fields=['id', 'incidence', 'control'])
+        ]
+        verbose_name = "Efectividad del control en la incidencia"
+        verbose_name_plural = "Efectividad de los controles en la incidencia"
+        ordering = ["id"]
