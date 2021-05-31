@@ -11,9 +11,11 @@
         </button>
         <div class="collapse navbar-collapse" id="nep">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'controls:create' %}"><i>Registrar nuevo control</i></a>
-                </li>
+                {% if request.user.is_staff %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'controls:create' %}"><i>Registrar nuevo control</i></a>
+                    </li>
+                {% endif %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'controls:list' %}"><i>Listado de controles</i></a>
                 </li>

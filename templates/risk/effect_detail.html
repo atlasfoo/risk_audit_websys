@@ -13,8 +13,10 @@
                     <div class="mb-2"><span
                             class="text-muted">Costo económico aproximado: </span>{{ effect.economic_loss }}USD
                     </div>
-                    <a class="btn btn-warning" href="{% url 'risks:update_effect' effect.id %}"><i
-                            class="far fa-edit"></i> Editar</a>
+                    {% if request.user.is_staff %}
+                        <a class="btn btn-warning" href="{% url 'risks:update_effect' effect.id %}"><i
+                                class="far fa-edit"></i> Editar</a>
+                    {% endif %}
                 </div>
             </div>
         </div>

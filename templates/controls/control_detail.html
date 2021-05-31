@@ -11,8 +11,10 @@
                     {{ control.description|safe }}
                     <div class="mb-2"><span class="text-muted">Riesgo asociado: </span>{{ control.risk.name }}</div>
                     <div class="mb-2"><span class="text-muted">Orden de ejecucion: </span>{{ control.order }}</div>
-                    <a class="btn btn-warning" href="{% url 'controls:update' control.id %}"><i
-                            class="far fa-edit"></i> Editar</a>
+                    {% if request.user.is_staff %}
+                        <a class="btn btn-warning" href="{% url 'controls:update' control.id %}"><i
+                                class="far fa-edit"></i> Editar</a>
+                    {% endif %}
                 </div>
             </div>
         </div>

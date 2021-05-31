@@ -9,6 +9,9 @@ body nav.main_bar .navbar-brand {
   letter-spacing: 1px;
   color: #1a1a1a;
 }
+body nav.main_bar #user-nav {
+  font-weight: 500;
+}
 body .det-list {
   color: #454545;
   font-style: italic;
