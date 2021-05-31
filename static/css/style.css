@@ -11,6 +11,7 @@ body nav.main_bar .navbar-brand {
 }
 body nav.main_bar #user-nav {
   font-weight: 500;
+  font-size: 20px;
 }
 body .det-list {
   color: #454545;
@@ -18,6 +19,7 @@ body .det-list {
   font-weight: 300;
 }
 body .economic-loss {
+  font-size: 26px;
   font-weight: 500;
   color: #a50202;
 }
