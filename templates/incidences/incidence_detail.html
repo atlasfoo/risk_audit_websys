@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% load filters %}
+{% block title %}{{ control.name }}{% endblock %}
+{% block body %}
+    {% include 'incidences/includes/incidences_menu.html' %}
+    <section class="container mt-3">
+        <div class="row card">
+            <div class="col-md-9 mx-auto card-body">
+                <h2 class="section-heading mb-4"><i class="fas fa-exclamation-circle"></i>
+                    Incidencia: {{ incidence.name }}</h2>
+                <div>
+                    {{ incidence.description|safe }}
+                    <div class="mb-2"><span class="text-muted">Riesgo asociado: </span>{{ incidence.risk.name }}</div>
+
+                    <h4>Causas manifestadas</h4>
+                    <ul>
+                        {% for cause in incidence.causes.all %}
+                            <li class="det-list"><a href="{% url 'risks:cause' cause.id %}">{{ cause.name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                    <h4>Consecuencias manifestadas</h4>
+                    <ul>
+                        {% for effect in incidence.effects.all %}
+                            <li class="det-list"><a href="{% url 'risks:effect' effect.id %}">{{ effect.name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                    <h4>Controles utilizados</h4>
+                    <ul>
+                        {% for control in incidence.controls.all %}
+                            <li class="det-list"><a
+                                    href="{% url 'controls:control' control.id %}">{{ control.name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                    <h4>Registrado por: {{ incidence.user.username }}</h4>
+                    <h4>Costo econ&oacute;mico total aporximado</h4>
+                    <div>
+                    <span class="economic-loss"><i
+                            class="fas fa-sort-down"></i> {{ incidence.effects.all|sum_economic_loss }} USD </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

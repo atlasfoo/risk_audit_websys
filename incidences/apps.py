@@ -1,7 +1,7 @@
 from django.apps import AppConfig
 
 
-class ControlsConfig(AppConfig):
+class IncidencesConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'controls'
-    verbose_name = 'Controles'
+    name = 'incidences'
+    verbose_name = 'Incidencias'

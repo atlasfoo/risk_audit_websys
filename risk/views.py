@@ -3,6 +3,7 @@ from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
 
+from incidences.models import Incidence
 from risk.forms import RiskForm, CauseForm, EffectForm
 from risk.models import Risk, Cause, Effect
 
@@ -14,6 +15,12 @@ class RiskListView(ListView):
 
 class RiskDetailView(DetailView):
     model = Risk
+
+    def get_context_data(self, **kwargs):
+        context = super(RiskDetailView, self).get_context_data(**kwargs)
+        prob = (Incidence.objects.filter(risk_id=self.object.id).count() / Incidence.objects.all().count()) * 100
+        context['risk_prob'] = prob
+        return context
 
 
 @method_decorator(staff_member_required, name='dispatch')
@@ -41,6 +48,15 @@ class CauseListView(ListView):
 class CauseDetailView(DetailView):
     model = Cause
 
+    def get_context_data(self, **kwargs):
+        context = super(CauseDetailView, self).get_context_data(**kwargs)
+        tot = 0
+        for inc in Incidence.objects.all():
+            tot += inc.causes.all().count()
+        prob = (Incidence.objects.filter(causes__id=self.object.id).count() / tot) * 100
+        context['cause_prob'] = prob
+        return context
+
 
 @method_decorator(staff_member_required, name='dispatch')
 class CreateCauseView(CreateView):
@@ -66,6 +82,15 @@ class EffectListView(ListView):
 
 class EffectDetailView(DetailView):
     model = Effect
+
+    def get_context_data(self, **kwargs):
+        context = super(EffectDetailView, self).get_context_data(**kwargs)
+        tot = 0
+        for inc in Incidence.objects.all():
+            tot += inc.effects.all().count()
+        prob = (Incidence.objects.filter(effects__id=self.object.id).count() / tot) * 100
+        context['effect_prob'] = prob
+        return context
 
 
 @method_decorator(staff_member_required, name='dispatch')

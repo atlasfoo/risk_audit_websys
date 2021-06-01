@@ -6,13 +6,15 @@ body {
 
   nav.main_bar {
     background-color: $main-backcolor !important;
+    color: #fff !important;
 
     .navbar-brand {
       font-weight: 500;
       letter-spacing: 1px;
-      color: #1a1a1a;
+      color: #eeeeee;
     }
-    #user-nav{
+
+    #user-nav {
       font-weight: 500;
       font-size: 20px;
     }
@@ -22,15 +24,31 @@ body {
     color: #454545;
     font-style: italic;
     font-weight: 300;
-    a{
+
+    a {
       text-decoration: none;
       color: #454545;
       transition: all .3s ease;
-      &:hover{
+
+      &:hover {
         cursor: pointer;
         color: #8a8a8a;
         font-weight: 400;
         font-size: 18px;
+      }
+    }
+  }
+
+  #dashboard {
+    .main-amount {
+      font-size: 24px;
+      font-weight: 500;
+      color: #fa9720;
+
+      &.economic-loss {
+        font-size: 26px;
+        font-weight: 500;
+        color: #a50202;
       }
     }
   }

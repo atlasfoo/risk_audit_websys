@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     'ckeditor',
     'core',
     'risk.apps.RiskConfig',
-    'controls.apps.ControlsConfig'
+    'controls.apps.ControlsConfig',
+    'incidences.apps.IncidencesConfig'
 ]
 
 MIDDLEWARE = [

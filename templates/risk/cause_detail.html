@@ -10,9 +10,15 @@
                 <div>
                     {{ cause.description|safe }}
                     <div class="mb-2"><span class="text-muted">Riesgo asociado: </span>{{ cause.risk.name }}</div>
+                    <h4>Probabilidad de ocurrencia de la causa</h4>
+                    <div>
+                        <span class="economic-loss"><i
+                                class="fas fa-sort-down"></i> {{ cause_prob }} % </span>
+                        <small class="text-muted">Calculado en base al total de las incidencias almacenadas</small>
+                    </div>
                     {% if request.user.is_staff %}
-                    <a class="btn btn-warning" href="{% url 'risks:update_cause' cause.id %}"><i
-                            class="far fa-edit"></i> Editar</a>
+                        <a class="btn btn-warning" href="{% url 'risks:update_cause' cause.id %}"><i
+                                class="far fa-edit"></i> Editar</a>
                     {% endif %}
                 </div>
             </div>
