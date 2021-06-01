@@ -1,6 +1,6 @@
 {% extends 'layout.html' %}
-{% load static %}
 {% load filters %}
+{% load static %}
 {% block title %}{{ risk.name }}{% endblock %}
 {% block body %}
     {% include 'risk/includes/risks_menu.html' %}
@@ -33,6 +33,12 @@
                 <div>
                     <span class="economic-loss"><i
                             class="fas fa-sort-down"></i> {{ risk.effects.all|sum_economic_loss }} USD </span>
+                </div>
+                <h4>Probabilidad de ocurrencia del riesgo</h4>
+                <div>
+                    <span class="economic-loss"><i
+                            class="fas fa-sort-down"></i> {{ risk_prob }} % </span>
+                    <small class="text-muted">Calculado en base al total las incidencias almacenadas</small>
                 </div>
                 {% if request.user.is_staff %}
                     <div class="mt-3">

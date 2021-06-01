@@ -11,6 +11,12 @@
                     {{ control.description|safe }}
                     <div class="mb-2"><span class="text-muted">Riesgo asociado: </span>{{ control.risk.name }}</div>
                     <div class="mb-2"><span class="text-muted">Orden de ejecucion: </span>{{ control.order }}</div>
+                    <h4>Efectividad del control</h4>
+                    <div>
+                        <span class="economic-loss"><i
+                                class="fas fa-sort-down"></i> {{ control_effect }} % </span>
+                                <small class="text-muted">Calculado en base al total las incidencias almacenadas</small>
+                    </div>
                     {% if request.user.is_staff %}
                         <a class="btn btn-warning" href="{% url 'controls:update' control.id %}"><i
                                 class="far fa-edit"></i> Editar</a>

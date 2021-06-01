@@ -6,7 +6,7 @@ from django.utils.datastructures import MultiValueDictKeyError
 from django.utils.decorators import method_decorator
 from django.views.generic import ListView, DetailView, CreateView
 
-from incidences.forms import IncidenceForm, IncidenceControlForm
+from incidences.forms import IncidenceForm
 from incidences.models import Incidence
 
 
@@ -22,6 +22,7 @@ class IncidencesDetailView(DetailView):
 class CreateIncidenceView(CreateView):
     model = Incidence
     form_class = IncidenceForm
+    success_url = reverse_lazy('incidences:list')
 
     def get_initial(self):
         """Set the user as user in session"""
@@ -32,6 +33,3 @@ class CreateIncidenceView(CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
-
-    def get_success_url(self):
-        return reverse_lazy('controls:list') + f'?incidence_id{self.object.id}'
