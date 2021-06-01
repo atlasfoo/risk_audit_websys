@@ -8,7 +8,7 @@ class IncidenceForm(forms.ModelForm):
         model = Incidence
         fields = ['name', 'description', 'risk', 'causes', 'effects']
         widgets = {
-            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nombre del Control'}),
+            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Incidencia'}),
             'description': forms.TextInput(attrs={'class': 'form-control'}),
             'risk': forms.Select(attrs={'class': 'form-select'}),
             'causes': forms.SelectMultiple(attrs={'class': 'form-select'}),
@@ -16,7 +16,7 @@ class IncidenceForm(forms.ModelForm):
         }
         labels = {
             'name': '',
-            'description': 'Descripción del riesgo',
+            'description': 'Descripción del evento',
             'risk': 'Riesgo asociado',
             'causes': 'Causas manifestadas',
             'effects': 'Consecuencias manifestadas',

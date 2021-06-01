@@ -55,8 +55,10 @@
                             Registro de Incidencias
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Registrar nueva incidencia</a></li>
-                            <li><a class="dropdown-item" href="#">Ver historial de incidencias</a></li>
+                            {% if request.user.is_authenticated %}
+                                <li><a class="dropdown-item" href="{% url 'incidences:create' %}">Registrar nueva incidencia</a></li>
+                            {% endif %}
+                            <li><a class="dropdown-item" href="{% url 'incidences:list' %}">Ver historial de incidencias</a></li>
                         </ul>
                     </li>
                 </ul>

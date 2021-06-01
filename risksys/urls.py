@@ -17,12 +17,14 @@ from django.contrib import admin
 from django.urls import path, include
 
 from controls.urls import controls_urls
+from incidences.urls import incidences_urls
 from risk.urls import risk_urls
 
 urlpatterns = [
     path('', include('core.urls')),
     path('risks/', include(risk_urls)),
     path('controls/', include(controls_urls)),
+    path('incidences/', include(incidences_urls)),
     path('admin/', admin.site.urls),
     path('auth/', include('django.contrib.auth.urls')),
 ]
