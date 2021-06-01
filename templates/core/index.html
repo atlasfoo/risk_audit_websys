@@ -1,0 +1,101 @@
+{% extends 'layout.html' %}
+{% load filters %}
+{% block title %}RiskSys{% endblock %}
+{% block body %}
+    <section class="container mt-4" id="dashboard">
+        <section class="row">
+            <article class="col-md-6 col-12">
+                <div class="card m-1">
+                    <div class="card-body p-3">
+                        <h5 class="card-title">
+                            Riesgo mas frecuente
+                        </h5>
+                        <h6 class="card-subtitle">Calculado en base a los registros de incidencias</h6>
+                        <p class="card-text">
+                            {{ freq_risk_name }}: <span class="main-amount">{{ freq_risk_prob|floatformat:2 }}%</span>
+                        </p>
+                    </div>
+                </div>
+            </article>
+            <article class="col-md-6 col-12">
+                <div class="card m-1">
+                    <div class="card-body p-3">
+                        <h5 class="card-title">
+                            Control mas efectivo
+                        </h5>
+                        <h6 class="card-subtitle">Calculado en base a los registros de incidencias</h6>
+                        <p class="card-text">
+                            {{ effect_control_name }} : <span class="main-amount">{{ effect_control_eff|floatformat:2 }}%</span>
+                        </p>
+                    </div>
+                </div>
+            </article>
+            <article class="col-md-6 col-12">
+                <div class="card m-1">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            Porcentaje de riesgos presentados
+                        </h5>
+                        <div>
+                            <canvas id="myChart" width="400" height="400"></canvas>
+                        </div>
+                    </div>
+
+                </div>
+            </article>
+            <article class="col-md-6 col-12">
+                <div class="card m-1">
+                    <div class="card-body p-3">
+                        <h5 class="card-title">
+                            P&eacute;rdida econ&oacute;mica total registrada
+                        </h5>
+                        <h6 class="card-subtitle">Calculado en base a los registros de incidencias</h6>
+                        <p class="card-text">
+                            <span class="main-amount economic-loss"> {{ tot_loss|floatformat:2 }} NIO</span>
+                        </p>
+                    </div>
+                </div>
+
+            </article>
+        </section>
+    </section>
+    <script>
+        var ctx = document.getElementById("myChart");
+        var myChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: [
+                    {% for el in risks %}
+                        '{{ el.risk__name }}',
+                    {% endfor %}
+                ],
+                datasets: [{
+                    label: '# of Tomatoes',
+                    data: [
+                        {% for el in risks %}
+                            {{ el.total }},
+                        {% endfor %}
+                    ],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.5)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                //cutoutPercentage: 40,
+                responsive: false,
+
+            }
+        });
+    </script>
+{% endblock %}

@@ -5,6 +5,11 @@ name = "pypi"
 
 [packages]
 django = "*"
+django-environ = "*"
+gunicorn = "*"
+whitenoise = "*"
+psycopg2 = "*"
+django-ckeditor = "*"
 
 [dev-packages]
 

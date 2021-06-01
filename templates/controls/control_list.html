@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block title %}Causas{% endblock %}
+{% block body %}
+    {% include 'controls/includes/controls_menu.html' %}
+    <section class="container">
+        {% for control in object_list %}
+            <div class="row mt-3 mb-2 card">
+                <div class="col-md-9 mx-auto card-body">
+                    <h2 class="mb-4">{{ control.name }}</h2>
+                    <div>
+                        <p>{{ control.description|striptags|safe|truncatechars:"200" }}</p>
+                        <p><span class="text-muted">Riesgo asociado:</span> {{ control.risk.name }}</p>
+                        <div class="entry-list">
+                            <a class="btn btn-secondary" href="{% url 'controls:control' control.id %}"><i
+                                    class="far fa-eye"></i> Leer más</a>
+                            {% if request.user.is_staff %}
+                                <a class="btn btn-warning" href="{% url 'controls:update' control.id %}"><i
+                                        class="far fa-edit"></i> Editar</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </section>
+{% endblock %}

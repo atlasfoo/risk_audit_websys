@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block title %}Iniciar sesión{% endblock %}
+{% block body %}
+    <section class="container">
+        <div class="row mt-3">
+            <div class="col-md-9 mx-auto mb-5">
+                <form action="" method="post">{% csrf_token %}
+                    <h3 class="mb-4"><i class="far fa-user"></i> Iniciar sesión</h3>
+                    {% if form.non_field_errors %}
+                        <div class="alert alert-warning">Usuario o contraseña incorrectos, prueba de nuevo.</div>
+                    {% endif %}
+                    <p>
+                        <input type="text" name="username" autofocus maxlength="254" required
+                               id="id_username" class="form-control" placeholder="Nombre de usuario"/>
+                    </p>
+                    <p>
+                        <input type="password" name="password" required
+                               id="id_password" class="form-control" placeholder="Contraseña"/>
+                    </p>
+                    <div class="d-grid gap-2"><input type="submit" class="btn btn-primary btn-block" value="Acceder">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock %}
