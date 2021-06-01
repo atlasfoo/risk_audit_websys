@@ -19,6 +19,8 @@ class Incidence(models.Model):
                                    related_query_name="incidence")
     effects = models.ManyToManyField(Effect, verbose_name="Consencuencias efectivas", related_name='incidences',
                                      related_query_name='incidence')
+    controls = models.ManyToManyField(Control, verbose_name="Controles Aplicados", related_name='incidences',
+                                     related_query_name='incidence')
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Usuario registrador", related_name="+")
 
     class Meta:
@@ -28,21 +30,3 @@ class Incidence(models.Model):
 
     def __str__(self):
         return self.name
-
-
-class IncidenceControl(models.Model):
-    """Manual m2m bw Incidences and Controls for was_effective flag mark"""
-    incidence = models.ForeignKey(Incidence, on_delete=models.CASCADE, verbose_name="Incidencia",
-                                  related_name="controls", null=False)
-    control = models.ForeignKey(Control, on_delete=models.CASCADE, verbose_name="Control", related_name="incidences",
-                                null=False)
-    was_effective = models.BooleanField(default=False, verbose_name="Control fue efectivo?")
-
-    class Meta:
-        unique_together = (('id', 'incidence', 'control'),)
-        indexes = [
-            models.Index(fields=['id', 'incidence', 'control'])
-        ]
-        verbose_name = "Efectividad del control en la incidencia"
-        verbose_name_plural = "Efectividad de los controles en la incidencia"
-        ordering = ["id"]
