@@ -1,6 +1,5 @@
 from django import forms
 
-from controls.models import Control
 from incidences.models import Incidence
 
 

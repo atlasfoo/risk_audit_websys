@@ -4,7 +4,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('controls', '0002_alter_control_options'),
         ('incidences', '0001_initial'),
@@ -13,7 +12,8 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AlterModelOptions(
             name='incidencecontrol',
-            options={'ordering': ['id'], 'verbose_name': 'Efectividad del control en la incidencia', 'verbose_name_plural': 'Efectividad de los controles en la incidencia'},
+            options={'ordering': ['id'], 'verbose_name': 'Efectividad del control en la incidencia',
+                     'verbose_name_plural': 'Efectividad de los controles en la incidencia'},
         ),
         migrations.AlterUniqueTogether(
             name='incidencecontrol',

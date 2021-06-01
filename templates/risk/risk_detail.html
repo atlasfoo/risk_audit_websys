@@ -26,10 +26,11 @@
                 <h4>Controles establecidos</h4>
                 <ul>
                     {% for control in risk.controls.all %}
-                        <li class="det-list"><a href="{% url 'controls:control' control.id %}">{{ control.name }}</a></li>
+                        <li class="det-list"><a href="{% url 'controls:control' control.id %}">{{ control.name }}</a>
+                        </li>
                     {% endfor %}
                 </ul>
-                <h4>Costo econ&oacute;mico total aporximado</h4>
+                <h4>Costo econ&oacute;mico total aproximado</h4>
                 <div>
                     <span class="economic-loss"><i
                             class="fas fa-sort-down"></i> {{ risk.effects.all|sum_economic_loss }} USD </span>

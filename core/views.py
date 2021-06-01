@@ -35,7 +35,7 @@ class IndexView(TemplateView):
         print(risks)
 
         # Total economic loss
-        tot_loss=0
+        tot_loss = 0
         incidences = Incidence.objects.all()
         for incidence in incidences:
             tot_loss += sum(el.economic_loss for el in incidence.effects.all())

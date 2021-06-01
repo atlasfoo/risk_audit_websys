@@ -4,7 +4,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('controls', '0002_alter_control_options'),
         ('incidences', '0003_rename_cause_incidence_causes'),
@@ -14,7 +13,8 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='incidence',
             name='controls',
-            field=models.ManyToManyField(related_name='incidences', related_query_name='incidence', to='controls.Control', verbose_name='Controles Aplicados'),
+            field=models.ManyToManyField(related_name='incidences', related_query_name='incidence',
+                                         to='controls.Control', verbose_name='Controles Aplicados'),
         ),
         migrations.DeleteModel(
             name='IncidenceControl',

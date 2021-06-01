@@ -17,7 +17,7 @@
                     <div>
                         <span class="economic-loss"><i
                                 class="fas fa-sort-down"></i> {{ effect_prob }} % </span>
-                                <small class="text-muted">Calculado en base al total las incidencias almacenadas</small>
+                        <small class="text-muted">Calculado en base al total las incidencias almacenadas</small>
                     </div>
                     {% if request.user.is_staff %}
                         <a class="btn btn-warning" href="{% url 'risks:update_effect' effect.id %}"><i

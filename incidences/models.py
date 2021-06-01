@@ -16,11 +16,11 @@ class Incidence(models.Model):
     risk = models.ForeignKey(Risk, on_delete=models.CASCADE, verbose_name="Riesgo", related_name="incidences",
                              null=False)
     causes = models.ManyToManyField(Cause, verbose_name="Causas presentes", related_name="incidences",
-                                   related_query_name="incidence")
+                                    related_query_name="incidence")
     effects = models.ManyToManyField(Effect, verbose_name="Consencuencias efectivas", related_name='incidences',
                                      related_query_name='incidence')
     controls = models.ManyToManyField(Control, verbose_name="Controles Aplicados", related_name='incidences',
-                                     related_query_name='incidence')
+                                      related_query_name='incidence')
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Usuario registrador", related_name="+")
 
     class Meta:
