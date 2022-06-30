@@ -73,6 +73,10 @@
 # Text files where line endings should be preserved
 *.patch    -text
 
+# Linguist configs
+* linguist-vendored
+*.py linguist-vendored=false
+
 #
 # Exclude files from exporting
 #
@@ -81,4 +85,3 @@
 .gitignore     export-ignore
 .gitkeep       export-ignore
 
-*/templates linguist-vendored
